@@ -1,3 +1,6 @@
+;;; nasm -f elf64 -o fib.o fib.asm && ld fib.o -o fib
+;;; prints the nth fibonacci sequence number, e.g. to get the 20th
+;;; ./fib 20 
 section .bss
 	digits resb 30
 section .text
