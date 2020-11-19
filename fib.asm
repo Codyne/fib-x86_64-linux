@@ -14,7 +14,7 @@ _start:
 	call _fib
 	
 	mov rdi, rax
-	call prINT
+	call _prINT
 
 	mov rax, 60
 	mov rdi, 0
@@ -61,22 +61,22 @@ _atoiLoop:
 	mov rax, r8
 	ret
 
-prINT:
+_prINT:
 	push rdi
 	mov rax, rdi
 	mov rcx, 10
 	mov r9, 0
 	mov r10, 0
 	mov r11, digits
-prINTpushLoop:
+_prINTpushLoop:
 	add r9, 1
 	mov rdx, 0	
 	div rcx
 
 	push rdx
 	cmp rax, 0
-	jne prINTpushLoop
-prINTpopLoop:
+	jne _prINTpushLoop
+_prINTpopLoop:
 	pop rax
 	mov rcx, rax
 	add rcx, 48
@@ -85,8 +85,8 @@ prINTpopLoop:
 	
 	add r10, 1
 	cmp r9, r10
-	jne prINTpopLoop
-prINTend:
+	jne _prINTpopLoop
+_prINTend:
 	mov rcx, 10
 	mov [r11], cl
 	add r10, 1
